@@ -1,4 +1,7 @@
 class PledgesController < ApplicationController
+
+  before_filter :load_project
+  # before_filter :ensure_logged_in, :only => [:edit, :create, :update, :destroy]
   before_action :set_pledge, only: [:show, :edit, :update, :destroy]
 
   # GET /pledges
@@ -10,6 +13,7 @@ class PledgesController < ApplicationController
   # GET /pledges/1
   # GET /pledges/1.json
   def show
+    @pledge = Pledge.find(params[:id])
   end
 
   # GET /pledges/new
@@ -24,7 +28,7 @@ class PledgesController < ApplicationController
   # POST /pledges
   # POST /pledges.json
   def create
-    @pledge = Pledge.new(pledge_params)
+    @pledge = @project.pledges.build(pledge_params)
     @pledge.user_id = current_user.id
 
     respond_to do |format|
@@ -72,4 +76,8 @@ class PledgesController < ApplicationController
     def pledge_params
       params.require(:pledge).permit(:project_id, :amount)
     end
+
+    def load_project
+    @project = Project.find(params[:project_id])
+  end
 end

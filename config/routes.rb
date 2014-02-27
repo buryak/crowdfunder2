@@ -1,9 +1,11 @@
 Crowdfunder2::Application.routes.draw do
   resources :rewards
 
-  resources :pledges
+  resources :projects do
+    resources :pledges
+  end
 
-  resources :projects
+  # resources :pledges
 
   root :to => 'users#index'
   resources :user_sessions
