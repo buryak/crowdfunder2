@@ -18,14 +18,10 @@
         <td><%= pledge.user_id %></td>
         <td><%= pledge.project_id %></td>
         <td><%= pledge.amount %></td>
-        <td><%= link_to 'Show', pledge %></td>
-        <td><%= link_to 'Edit', edit_pledge_path(pledge) %></td>
-        <td><%= link_to 'Destroy', pledge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', @pledge %></td>
+        <td><%= link_to 'Edit', edit_project_path(pledge) %></td>
+        <td><%= link_to 'Destroy', @project_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Pledge', new_pledge_path %>
