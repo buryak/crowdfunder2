@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @reward.project_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @reward.quantity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reward.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @reward.value %>
+</p>
+
+<%= link_to 'Edit', edit_reward_path(@reward) %> |
+<%= link_to 'Back', rewards_path %>

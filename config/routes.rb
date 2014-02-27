@@ -1,4 +1,6 @@
 Crowdfunder2::Application.routes.draw do
+  resources :rewards
+
   resources :pledges
 
   resources :projects

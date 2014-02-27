@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   validates :email, uniqueness: true
+
+  has_many :pledges
+  has_many :projects, foreign_key: 'founder_id'
+  has_many :backed_projects, through: :pledges, source: :project
 end
