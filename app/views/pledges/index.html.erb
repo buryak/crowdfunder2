@@ -1,10 +1,9 @@
-<h1>Listing pledges</h1>
+<h1>Listing pledges for <%= @project.title %></h1>
 
 <table>
   <thead>
     <tr>
       <th>User</th>
-      <th>Project</th>
       <th>Amount</th>
       <th></th>
       <th></th>
@@ -16,7 +15,6 @@
     <% @pledges.each do |pledge| %>
       <tr>
         <td><%= pledge.user_id %></td>
-        <td><%= pledge.project_id %></td>
         <td><%= pledge.amount %></td>
         <td><%= link_to 'Show', @pledge %></td>
         <td><%= link_to 'Edit', edit_project_path(pledge) %></td>

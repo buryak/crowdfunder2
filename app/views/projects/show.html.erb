@@ -12,7 +12,7 @@
 
 <p>
   <strong>Goal:</strong>
-  <%= @project.goal %>
+  $<%= @project.goal %>
 </p>
 
 <p>
@@ -24,6 +24,11 @@
   <strong>Enddate:</strong>
   <%= @project.enddate %>
 </p>
+
+<p><h5>Total Pledges So Far</h5>
+  $<%= @project.pledges.sum("amount") %>
+</p>
+
 
 <% if current_user %>
 <%= form_for [@project, @pledge] do |f| %>
