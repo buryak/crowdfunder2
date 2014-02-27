@@ -5,12 +5,12 @@ Crowdfunder2::Application.routes.draw do
 
   resources :projects
 
-root :to => 'users#index'
-resources :user_sessions
-resources :users
+  root :to => 'users#index'
+  resources :user_sessions
+  resources :users
 
-get 'login' => 'user_sessions#new', :as => :login
-post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

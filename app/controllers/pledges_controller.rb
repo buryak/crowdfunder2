@@ -25,6 +25,7 @@ class PledgesController < ApplicationController
   # POST /pledges.json
   def create
     @pledge = Pledge.new(pledge_params)
+    @pledge.user_id = current_user.id
 
     respond_to do |format|
       if @pledge.save
@@ -69,6 +70,6 @@ class PledgesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pledge_params
-      params.require(:pledge).permit(:user_id, :project_id, :amount)
+      params.require(:pledge).permit(:project_id, :amount)
     end
 end
