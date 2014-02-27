@@ -33,7 +33,7 @@ class PledgesController < ApplicationController
 
     respond_to do |format|
       if @pledge.save
-        format.html { redirect_to @pledge, notice: 'Pledge was successfully created.' }
+        format.html { redirect_to @project, notice: 'Pledge was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pledge }
       else
         format.html { render action: 'new' }
