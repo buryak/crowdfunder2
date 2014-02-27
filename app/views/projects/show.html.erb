@@ -33,6 +33,11 @@
   $<%= @project.pledges.sum("amount") %>
 </p>
 
+<% if current_user.id == @project.founder_id %>
+  <%= link_to "Create new reward", new_project_reward_path(@project) %>
+
+<% end %>
+
 
 <% if current_user %>
 <%= form_for [@project, @pledge] do |f| %>

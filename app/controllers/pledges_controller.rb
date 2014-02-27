@@ -33,7 +33,7 @@ class PledgesController < ApplicationController
 
     respond_to do |format|
       if @pledge.save
-        format.html { redirect_to @project, notice: 'Pledge was successfully created.' }
+        format.html { redirect_to project_pledges_url, notice: 'Pledge was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pledge }
       else
         format.html { render action: 'new' }
@@ -47,7 +47,7 @@ class PledgesController < ApplicationController
   def update
     respond_to do |format|
       if @pledge.update(pledge_params)
-        format.html { redirect_to @pledge, notice: 'Pledge was successfully updated.' }
+        format.html { redirect_to project_pledges_url, notice: 'Pledge was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,7 +61,7 @@ class PledgesController < ApplicationController
   def destroy
     @pledge.destroy
     respond_to do |format|
-      format.html { redirect_to pledges_url }
+      format.html { redirect_to project_pledges_url, notice: 'Pledge destroyed!' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,6 @@ class PledgesController < ApplicationController
     end
 
     def load_project
-    @project = Project.find(params[:project_id])
-  end
+      @project = Project.find(params[:project_id])
+    end
 end

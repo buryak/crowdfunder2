@@ -39,6 +39,8 @@ group :development, :test do
   gem 'autotest'
   gem 'capybara', '1.1.2'
   gem 'webrat'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
