@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.founder_id = current_user.id
 
     respond_to do |format|
       if @project.save
@@ -35,6 +36,27 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+
+    # def create
+    #   @review = @product.reviews.build(review_params)
+    #   @review.user_id = current_user.id
+    #   respond_to do |format|
+    #     if @review.save
+    #       format.html { redirect_to product_path(@product.id), notice: 'Review added.' }
+    #       format.js {}
+    #     else
+    #       format.html { render 'products/show', alert: 'There was an error.' }
+    #       format.js {}
+    #     end
+    #   end
+    # end
+
+
+
+
+
+
+
   end
 
   # PATCH/PUT /projects/1
