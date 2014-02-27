@@ -13,15 +13,21 @@
 <p>
   <strong>Goal:</strong>
   $<%= @project.goal %>
+    <% if @project.pledges.sum("amount") >= @project.goal %>
+        <%= "Funding goal reached!" %>
+      <% else %>
+        || $<%= @project.goal - @project.pledges.sum("amount")%>
+        <Strong>: To Goal</strong>
+        <% end %>
 </p>
 
 <p>
-  <strong>Startdate:</strong>
+  <strong>Start Date:</strong>
   <%= @project.startdate %>
 </p>
 
 <p>
-  <strong>Enddate:</strong>
+  <strong>End Date:</strong>
   <%= @project.enddate %>
 </p>
 
